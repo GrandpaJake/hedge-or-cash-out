@@ -26,11 +26,17 @@ function addLeg() {
     var newInputWrapper = document.createElement('div');
     newInputWrapper.classList.add('inputWrapper');
 
+    var newOddsLabel = document.createElement('label');
+    newOddsLabel.for('oddsForLeg' + (inputContainer.children.length + 1))
+    newInputWrapper.appendChild(newOddsLabel);
     var newOddsInput = document.createElement('input');
     newOddsInput.type = 'text';
     newOddsInput.id = 'oddsForLeg' + (inputContainer.children.length + 1);
     newInputWrapper.appendChild(newOddsInput);
 
+    var newRiskLabel = document.createElement('label');
+    newRiskLabel.for('riskForLeg' + (inputContainer.children.length + 1))
+    newInputWrapper.appendChild(newRiskLabel);
     var newRiskInput = document.createElement('input');
     newRiskInput.type = 'text';
     newRiskInput.id = 'riskForLeg' + (inputContainer.children.length + 1);
