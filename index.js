@@ -20,7 +20,8 @@ function convertAmericanOddsToMultiplier(americanOdds) {
     }
 }
 
-function addLeg() {
+function addLeg(event) {
+    event.preventDefault();
     console.log('adding leg');
     var inputContainer = document.getElementById('inputContainer');
     var newInputWrapper = document.createElement('div');
