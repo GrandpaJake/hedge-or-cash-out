@@ -27,7 +27,8 @@ function addLeg() {
     newInputWrapper.classList.add('inputWrapper');
 
     var newOddsLabel = document.createElement('label');
-    newOddsLabel.for('oddsForLeg' + (inputContainer.children.length + 1))
+    newOddsLabel.for = ('oddsForLeg' + (inputContainer.children.length + 1));
+    newOddsLabel.textContent = 'Leg Odds';
     newInputWrapper.appendChild(newOddsLabel);
     var newOddsInput = document.createElement('input');
     newOddsInput.type = 'text';
@@ -35,7 +36,8 @@ function addLeg() {
     newInputWrapper.appendChild(newOddsInput);
 
     var newRiskLabel = document.createElement('label');
-    newRiskLabel.for('riskForLeg' + (inputContainer.children.length + 1))
+    newRiskLabel.for = ('riskForLeg' + (inputContainer.children.length + 1));
+    newRiskLabel.textContent = 'Leg Risk';
     newInputWrapper.appendChild(newRiskLabel);
     var newRiskInput = document.createElement('input');
     newRiskInput.type = 'text';
