@@ -20,6 +20,28 @@ function convertAmericanOddsToMultiplier(americanOdds) {
     }
 }
 
+function calculateHedgeOrCashOut(event) {
+    event.preventDefault();
+    var inputContainer = document.getElementById('inputContainer');
+    var legsToCalculate = inputContainer.children.length - 1;
+    var legOddsList = getLegOdds(legsToCalculate);
+    console.log('Leg Decimal Odds: ');
+    for (var i = 0; i < legOddsList.length; i++) {
+        console.log(legOddsList[i]);
+    }
+    //TODO: use leg odds to calculate hedging values
+}
+
+function getLegOdds(legCount) {
+    var legOddsList = [];
+    for (var i = 1; i <= legCount; i++) {
+        var legOddsInput = document.getElementById('oddsForLeg' + i);
+        var legOdds = legOddsInput.value;
+        legOddsList.push(convertAmericanOddsToMultiplier(legOdds));
+    }
+    return legOddsList;
+}
+
 function addLeg(event) {
     event.preventDefault();
     console.log('adding leg');
@@ -28,21 +50,21 @@ function addLeg(event) {
     newInputWrapper.classList.add('inputWrapper');
 
     var newOddsLabel = document.createElement('label');
-    newOddsLabel.for = ('oddsForLeg' + (inputContainer.children.length + 1));
+    newOddsLabel.for = ('oddsForLeg' + (inputContainer.children.length));
     newOddsLabel.textContent = 'Leg Odds';
     newInputWrapper.appendChild(newOddsLabel);
     var newOddsInput = document.createElement('input');
     newOddsInput.type = 'text';
-    newOddsInput.id = 'oddsForLeg' + (inputContainer.children.length + 1);
+    newOddsInput.id = 'oddsForLeg' + (inputContainer.children.length);
     newInputWrapper.appendChild(newOddsInput);
 
     var newRiskLabel = document.createElement('label');
-    newRiskLabel.for = ('riskForLeg' + (inputContainer.children.length + 1));
+    newRiskLabel.for = ('riskForLeg' + (inputContainer.children.length));
     newRiskLabel.textContent = 'Leg Risk';
     newInputWrapper.appendChild(newRiskLabel);
     var newRiskInput = document.createElement('input');
     newRiskInput.type = 'text';
-    newRiskInput.id = 'riskForLeg' + (inputContainer.children.length + 1);
+    newRiskInput.id = 'riskForLeg' + (inputContainer.children.length);
     newInputWrapper.appendChild(newRiskInput);
 
     var newButton = document.createElement('button');
